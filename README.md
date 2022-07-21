@@ -1,6 +1,6 @@
 <div align="center">
 
-## Live Inspired API
+## Live Inspired API 1.0 beta
 
 ## Developer
 
