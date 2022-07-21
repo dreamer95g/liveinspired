@@ -1,0 +1,15 @@
+
+type Image {
+    id: ID!
+    name: String
+}
+
+extend type Query {
+    images: [Image] @all @guard(with: ["api"])
+    image(id: ID @eq): Image @find @guard(with: ["api"])
+}
+
+extend type Mutation {
+    storeImage(name: String!): Image @create @guard(with: ["api"])
+    deleteImage(id: Int!): Image @delete @guard(with: ["api"])
+}

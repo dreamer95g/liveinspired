@@ -1,0 +1,20 @@
+type Tag {
+    id: ID!
+    name: String!
+}
+
+extend type Mutation {
+    #Tag
+    createTag(name: String!): Tag @create @guard(with: ["api"])
+
+    updateTag(id: ID!, name: String!): Tag @update @guard(with: ["api"])
+
+    deleteTag(id: ID!): Tag @delete @guard(with: ["api"])
+
+    deleteTags(ids: [Int]): [Tag] @guard(with: ["api"])
+}
+
+extend type Query {
+    tags: [Tag] @all @guard(with: ["api"])
+    Tag(id: ID @eq): Tag @find @guard(with: ["api"])
+}
