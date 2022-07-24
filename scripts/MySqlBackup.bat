@@ -8,6 +8,7 @@ set PASSWORD=root
 REM set BACKUP_DIR=C:\Users\gabry\OneDrive\Develop\Liveinspired\Backup\
 set BACKUP_DIR=%1%
 set MYSQLDUMP_BIN=C:\laragon\bin\mysql\mysql-5.7.24-win32\bin\mysqldump.exe
+
 set FECHA=%date:/=_%
 
 
@@ -18,7 +19,7 @@ REM Ejecucion
 REM Manejar errores
 if  errorlevel 1 goto ERROR
 REM echo SUCCESSFUL
-:ERROR 
+:ERROR
 REM echo FAILED
 
 exit

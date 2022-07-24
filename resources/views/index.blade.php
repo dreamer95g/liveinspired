@@ -13,18 +13,18 @@
             type="module"
             crossorigins
 
-            src="http://liveinspired.local/assets/js/index.24e7f61a.js"
+            src="http://liveinspired.local/assets/js/index.f12ba459.js"
         ></script>
         <link
             rel="modulepreload"
 
-            href="http://liveinspired.local/assets/js/vendor.86fa8539.js"
+            href="http://liveinspired.local/assets/js/vendor.2c2efbea.js"
 
         />
         <link
             rel="stylesheet"
 
-            href="http://liveinspired.local/assets/css/index.619e82ec.css"
+            href="http://liveinspired.local/assets/css/index.7ec11761.css"
         />
     </head>
     <body>
