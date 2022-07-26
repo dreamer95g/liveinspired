@@ -7,28 +7,28 @@
         <link
             rel="icon"
             type="image/svg+xml"
-            {{-- href="http://liveinspired.local/assets/images/logo.png" --}}
-            href="https://liveinspired.herokuapp.com/assets/images/logo.png"
+            href="http://liveinspired.local/assets/images/logo.png"
+            {{-- href="https://liveinspired.herokuapp.com/assets/images/logo.png" --}}
         />
         <script
             type="module"
             crossorigins
 
-            {{-- src="http://liveinspired.local/assets/js/index.f12ba459.js" --}}
-            src="https://liveinspired.herokuapp.com/assets/js/index.f12ba459.js"
+            src="http://liveinspired.local/assets/js/index.f12ba459.js"
+            {{-- src="https://liveinspired.herokuapp.com/assets/js/index.f12ba459.js" --}}
         ></script>
         <link
             rel="modulepreload"
 
-            {{-- href="http://liveinspired.local/assets/js/vendor.2c2efbea.js" --}}
-            href="https://liveinspired.herokuapp.com/assets/js/vendor.2c2efbea.js"
+            href="http://liveinspired.local/assets/js/vendor.2c2efbea.js"
+            {{-- href="https://liveinspired.herokuapp.com/assets/js/vendor.2c2efbea.js" --}}
 
         />
         <link
             rel="stylesheet"
 
-            {{-- href="http://liveinspired.local/assets/css/index.7ec11761.css" --}}
-            href="https://liveinspired.herokuapp.com/assets/css/index.7ec11761.css"
+            href="http://liveinspired.local/assets/css/index.7ec11761.css"
+            {{-- href="https://liveinspired.herokuapp.com/assets/css/index.7ec11761.css" --}}
         />
     </head>
     <body>
