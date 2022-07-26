@@ -7,7 +7,7 @@
         <link
             rel="icon"
             type="image/svg+xml"
-                      href="http://liveinspired.local/assets/images/logo.png"
+            href="http://liveinspired.local/assets/images/logo.png"
         />
         <script
             type="module"
