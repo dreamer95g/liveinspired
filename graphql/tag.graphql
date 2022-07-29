@@ -1,13 +1,29 @@
 type Tag {
     id: ID!
     name: String!
+    user: User @belongsTo
+}
+
+input CreateTagInput {
+    name: String
+    user: TagUserInput
+}
+
+input UpdateTagInput {
+    id: ID!
+    name: String
+}
+
+input TagUserInput {
+    connect: ID
+    disconnect: ID
 }
 
 extend type Mutation {
     #Tag
-    createTag(name: String!): Tag @create @guard(with: ["api"])
+    createTag(input: CreateTagInput! @spread): Tag @create @guard(with: ["api"])
 
-    updateTag(id: ID!, name: String!): Tag @update @guard(with: ["api"])
+    updateTag(input: UpdateTagInput! @spread): Tag @update @guard(with: ["api"])
 
     deleteTag(id: ID!): Tag @delete @guard(with: ["api"])
 
@@ -15,6 +31,6 @@ extend type Mutation {
 }
 
 extend type Query {
-    tags: [Tag] @all @guard(with: ["api"])
+    Tags(user_id: ID @eq): [Tag] @all @guard(with: ["api"])
     Tag(id: ID @eq): Tag @find @guard(with: ["api"])
 }

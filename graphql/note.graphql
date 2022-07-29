@@ -3,12 +3,14 @@ type Note {
     date: Date
     text: String
     tags: [Tag] @belongsToMany
+    user: User @belongsTo
 }
 
 input CreateNoteInput {
     date: Date
     text: String
     tags: NoteTagInput
+    user: NoteUserInput
 }
 
 input UpdateNoteInput {
@@ -16,11 +18,17 @@ input UpdateNoteInput {
     date: Date
     text: String
     tags: NoteTagInput
+    user: NoteUserInput
 }
 
 input NoteTagInput {
     connect: [ID]
     disconnect: [ID]
+}
+
+input NoteUserInput {
+    connect: ID
+    disconnect: ID
 }
 
 extend type Mutation {
@@ -33,9 +41,7 @@ extend type Mutation {
         @update
         @guard(with: ["api"])
 
-    deleteNote(id: ID! @rules(apply: ["required"])): Note
-        @delete
-        @guard(with: ["api"])
+    deleteNote(id: ID!): Note @delete @guard(with: ["api"])
 
     deleteNotes(ids: [Int]): [Note] @guard(with: ["api"])
 }
@@ -44,16 +50,16 @@ extend type Query {
     # # Note
     NoteWhere(where: _ @whereConditions(columns: ["date", "text"])): Note
         @find
-        @softDeletes
         @guard(with: ["api"])
 
-    Notes: [Note] @all @softDeletes @guard(with: ["api"])
+    # Notes: [Note] @all @softDeletes @guard(with: ["api"])
+    Notes(user_id: ID @eq): [Note] @all @guard(with: ["api"])
 
     # Notes: [Note] @all
-    Note(id: ID @eq): Note @find @softDeletes @guard(with: ["api"])
+    Note(id: ID @eq): Note @find @guard(with: ["api"])
 
-    NoteByTag(tags: _ @whereHasConditions(columns: ["id", "name"])): [Note]
-        @all
-        @softDeletes
-        @guard(with: ["api"])
+    NoteByTag(
+        tags: _ @whereHasConditions(columns: ["id", "name"])
+        user_id: ID @eq
+    ): [Note] @all @guard(with: ["api"])
 }

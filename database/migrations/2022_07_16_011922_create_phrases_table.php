@@ -17,8 +17,12 @@ class CreatePhrasesTable extends Migration
             $table->id();
             $table->text("text");
             $table->text("author");
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-            $table->softDeletes();
+
+            //$table->softDeletes();
+
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

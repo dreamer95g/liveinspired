@@ -16,8 +16,12 @@ class CreateTagsTable extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->text('name');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-             $table->softDeletes();
+
+            //$table->softDeletes();
+
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
