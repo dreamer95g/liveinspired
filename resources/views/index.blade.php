@@ -14,14 +14,14 @@
             type="module"
             crossorigins
 
-            {{-- src="http://liveinspired.local/assets/js/index.f12ba459.js" --}}
-            src="https://liveinspired.herokuapp.com/assets/js/index.f12ba459.js"
+            {{-- src="http://liveinspired.local/assets/js/index.d988aaeb.js" --}}
+            src="https://liveinspired.herokuapp.com/assets/js/index.d988aaeb.js"
         ></script>
         <link
             rel="modulepreload"
 
-            {{-- href="http://liveinspired.local/assets/js/vendor.2c2efbea.js" --}}
-            href="https://liveinspired.herokuapp.com/assets/js/vendor.2c2efbea.js"
+            {{-- href="http://liveinspired.local/assets/js/vendor.2ebcae72.js" --}}
+            href="https://liveinspired.herokuapp.com/assets/js/vendor.2ebcae72.js"
 
         />
         <link

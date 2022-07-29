@@ -17,8 +17,12 @@ class CreateNotesTable extends Migration
             $table->id();
             $table->date("date");
             $table->text("text");
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-            $table->softDeletes();
+
+            //$table->softDeletes();
+
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -3,12 +3,14 @@ type Phrase {
     text: String
     author: String
     tags: [Tag] @belongsToMany
+    user: User @belongsTo
 }
 
 input CreatePhraseInput {
     text: String
     author: String
     tags: PhraseTagInput
+    user: PhraseUserInput
 }
 
 input UpdatePhraseInput {
@@ -16,11 +18,17 @@ input UpdatePhraseInput {
     text: String
     author: String
     tags: PhraseTagInput
+    user: PhraseUserInput
 }
 
 input PhraseTagInput {
     connect: [ID]
     disconnect: [ID]
+}
+
+input PhraseUserInput {
+    connect: ID
+    disconnect: ID
 }
 
 extend type Mutation {
@@ -33,9 +41,7 @@ extend type Mutation {
         @update
         @guard(with: ["api"])
 
-    deletePhrase(id: ID! @rules(apply: ["required"])): Phrase
-        @delete
-        @guard(with: ["api"])
+    deletePhrase(id: ID!): Phrase @delete @guard(with: ["api"])
 
     deletePhrases(ids: [Int]): [Phrase] @guard(with: ["api"])
 }
@@ -44,16 +50,14 @@ extend type Query {
     # # Phrase
     PhraseWhere(where: _ @whereConditions(columns: ["date", "text"])): Phrase
         @find
-        @softDeletes
         @guard(with: ["api"])
 
-    Phrases: [Phrase] @all @softDeletes @guard(with: ["api"])
+    Phrases(user_id: ID @eq): [Phrase] @all @guard(with: ["api"])
 
-    # Phrases: [Phrase] @all
-    Phrase(id: ID @eq): Phrase @find @softDeletes @guard(with: ["api"])
+    Phrase(id: ID @eq): Phrase @find @guard(with: ["api"])
 
-    PhraseByTag(tags: _ @whereHasConditions(columns: ["id", "name"])): [Phrase]
-        @all
-        @softDeletes
-        @guard(with: ["api"])
+    PhraseByTag(
+        tags: _ @whereHasConditions(columns: ["id", "name"])
+        user_id: ID @eq
+    ): [Phrase] @all @guard(with: ["api"])
 }
