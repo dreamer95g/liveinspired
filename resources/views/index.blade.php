@@ -14,21 +14,21 @@
             type="module"
             crossorigins
 
-            src="http://liveinspired.local/assets/js/index.3f93f354.js"
-            {{-- src="https://liveinspired.herokuapp.com/assets/js/index.3f93f354.js" --}}
+            src="http://liveinspired.local/assets/js/index.d48f6d60.js"
+            {{-- src="https://liveinspired.herokuapp.com/assets/js/index.d48f6d60.js" --}}
         ></script>
         <link
             rel="modulepreload"
 
-            href="http://liveinspired.local/assets/js/vendor.2ebcae72.js"
-            {{-- href="https://liveinspired.herokuapp.com/assets/js/vendor.2ebcae72.js" --}}
+            href="http://liveinspired.local/assets/js/vendor.3586ca90.js"
+            {{-- href="https://liveinspired.herokuapp.com/assets/js/vendor.3586ca90.js" --}}
 
         />
         <link
             rel="stylesheet"
 
-            href="http://liveinspired.local/assets/css/index.7ec11761.css"
-            {{-- href="https://liveinspired.herokuapp.com/assets/css/index.7ec11761.css" --}}
+            href="http://liveinspired.local/assets/css/index.5ab0bcd4.css"
+            {{-- href="https://liveinspired.herokuapp.com/assets/css/index.5ab0bcd4.css" --}}
         />
     </head>
     <body>
