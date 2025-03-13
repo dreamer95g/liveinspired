@@ -1,0 +1,65 @@
+type Note {
+    id: ID!
+    date: Date
+    text: String
+    tags: [Tag] @belongsToMany
+    user: User @belongsTo
+}
+
+input CreateNoteInput {
+    date: Date
+    text: String
+    tags: NoteTagInput
+    user: NoteUserInput
+}
+
+input UpdateNoteInput {
+    id: ID!
+    date: Date
+    text: String
+    tags: NoteTagInput
+    user: NoteUserInput
+}
+
+input NoteTagInput {
+    connect: [ID]
+    disconnect: [ID]
+}
+
+input NoteUserInput {
+    connect: ID
+    disconnect: ID
+}
+
+extend type Mutation {
+    # Note
+    createNote(input: CreateNoteInput! @spread): Note
+        @create
+        @guard(with: ["api"])
+
+    updateNote(input: UpdateNoteInput! @spread): Note
+        @update
+        @guard(with: ["api"])
+
+    deleteNote(id: ID!): Note @delete @guard(with: ["api"])
+
+    deleteNotes(ids: [Int]): [Note] @guard(with: ["api"])
+}
+
+extend type Query {
+    # # Note
+    NoteWhere(where: _ @whereConditions(columns: ["date", "text"])): Note
+        @find
+        @guard(with: ["api"])
+
+    # Notes: [Note] @all @softDeletes @guard(with: ["api"])
+    Notes(user_id: ID @eq): [Note] @all @guard(with: ["api"])
+
+    # Notes: [Note] @all
+    Note(id: ID @eq): Note @find @guard(with: ["api"])
+
+    NoteByTag(
+        tags: _ @whereHasConditions(columns: ["id", "name"])
+        user_id: ID @eq
+    ): [Note] @all @guard(with: ["api"])
+}

@@ -1,0 +1,36 @@
+type Tag {
+    id: ID!
+    name: String!
+    user: User @belongsTo
+}
+
+input CreateTagInput {
+    name: String
+    user: TagUserInput
+}
+
+input UpdateTagInput {
+    id: ID!
+    name: String
+}
+
+input TagUserInput {
+    connect: ID
+    disconnect: ID
+}
+
+extend type Mutation {
+    #Tag
+    createTag(input: CreateTagInput! @spread): Tag @create @guard(with: ["api"])
+
+    updateTag(input: UpdateTagInput! @spread): Tag @update @guard(with: ["api"])
+
+    deleteTag(id: ID!): Tag @delete @guard(with: ["api"])
+
+    deleteTags(ids: [Int]): [Tag] @guard(with: ["api"])
+}
+
+extend type Query {
+    Tags(user_id: ID @eq): [Tag] @all @guard(with: ["api"])
+    Tag(id: ID @eq): Tag @find @guard(with: ["api"])
+}

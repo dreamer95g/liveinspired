@@ -1,0 +1,63 @@
+type Phrase {
+    id: ID!
+    text: String
+    author: String
+    tags: [Tag] @belongsToMany
+    user: User @belongsTo
+}
+
+input CreatePhraseInput {
+    text: String
+    author: String
+    tags: PhraseTagInput
+    user: PhraseUserInput
+}
+
+input UpdatePhraseInput {
+    id: ID!
+    text: String
+    author: String
+    tags: PhraseTagInput
+    user: PhraseUserInput
+}
+
+input PhraseTagInput {
+    connect: [ID]
+    disconnect: [ID]
+}
+
+input PhraseUserInput {
+    connect: ID
+    disconnect: ID
+}
+
+extend type Mutation {
+    # Phrase
+    createPhrase(input: CreatePhraseInput! @spread): Phrase
+        @create
+        @guard(with: ["api"])
+
+    updatePhrase(input: UpdatePhraseInput! @spread): Phrase
+        @update
+        @guard(with: ["api"])
+
+    deletePhrase(id: ID!): Phrase @delete @guard(with: ["api"])
+
+    deletePhrases(ids: [Int]): [Phrase] @guard(with: ["api"])
+}
+
+extend type Query {
+    # # Phrase
+    PhraseWhere(where: _ @whereConditions(columns: ["date", "text"])): Phrase
+        @find
+        @guard(with: ["api"])
+
+    Phrases(user_id: ID @eq): [Phrase] @all @guard(with: ["api"])
+
+    Phrase(id: ID @eq): Phrase @find @guard(with: ["api"])
+
+    PhraseByTag(
+        tags: _ @whereHasConditions(columns: ["id", "name"])
+        user_id: ID @eq
+    ): [Phrase] @all @guard(with: ["api"])
+}
