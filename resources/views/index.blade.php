@@ -7,16 +7,16 @@
         <link
             rel="icon"
             type="image/svg+xml"
-            href="http://liveinspired.local/assets/images/logo.png"
+            href="http://liveinspired.home/assets/images/logo.png"
         />
         <script
             type="module"
             crossorigins
-            src="http://liveinspired.local/assets/js/index.0edd521a.js"
+            src="http://liveinspired.home/assets/js/index.b8da3ecc.js"
         ></script>
         <link
             rel="stylesheet"
-            href="http://liveinspired.local/assets/css/index.58f0f91a.css"
+            href="http://liveinspired.home/assets/css/index.58f0f91a.css"
             />
     </head>
     <body>

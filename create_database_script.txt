@@ -1,1 +1,1 @@
-create database inspired character set utf8;
+create database inspired character set utf8mb4;
