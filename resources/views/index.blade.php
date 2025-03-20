@@ -12,11 +12,11 @@
         <script
             type="module"
             crossorigins
-            src="http://liveinspired.home/assets/js/index.b8da3ecc.js"
+            src="http://liveinspired.home/assets/js/index-D_TWcQbo.js"
         ></script>
         <link
             rel="stylesheet"
-            href="http://liveinspired.home/assets/css/index.58f0f91a.css"
+            href="http://liveinspired.home/assets/css/index-kLy97vDM.css"
             />
     </head>
     <body>
