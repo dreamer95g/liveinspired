@@ -12,7 +12,7 @@
         <script
             type="module"
             crossorigins
-            src="http://liveinspired.home/assets/js/index-D_TWcQbo.js"
+            src="http://liveinspired.home/assets/js/index-CmW-G92n.js"
         ></script>
         <link
             rel="stylesheet"
