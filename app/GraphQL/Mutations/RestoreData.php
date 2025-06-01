@@ -12,7 +12,7 @@ class RestoreData
     {
         $backup = $args['backup'];
 
-        $script = dirname(__FILE__, 4) . "\\scripts\\MySqlRestore.bat " . $backup;
+        $script = dirname(__FILE__, 4) . "\\scripts\\linux\\MySqlRestore.sh " . $backup;
 
         $res = 0;
 

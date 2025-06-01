@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "~7.3",
-        "fruitcake/laravel-cors": "2.0",
+        "fruitcake/laravel-cors": "^2.2",
         "guzzlehttp/guzzle": "7.0.1",
         "joselfonseca/lighthouse-graphql-passport-auth": "6.0",
         "laravel/framework": "8.54",
@@ -19,7 +19,8 @@
         "laravel/tinker": "2.5",
         "mll-lab/graphql-php-scalars": "4",
         "mll-lab/laravel-graphql-playground": "2.5",
-        "nuwave/lighthouse": "5.23"
+        "nuwave/lighthouse": "5.23",
+        "rebing/graphql-laravel": "^8.2"
     },
     "require-dev": {
         "facade/ignition": "2.5",
